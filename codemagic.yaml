@@ -1,9 +1,6 @@
 workflows:
   react-native-android:
     name: React Native Android
-    environment:
-      android: android-34
-      java: java-11
     triggering:
       events:
         - push
