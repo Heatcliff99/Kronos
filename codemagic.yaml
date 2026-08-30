@@ -1,11 +1,13 @@
 workflows:
-  react-native-android:
-    name: React Native Android
+  expo-android:
+    name: Build Android with Expo
     triggering:
       events:
         - push
     scripts:
+      - name: Install dependencies
+        script: npm install
       - name: Build APK
-        script: flutter pub get && flutter build apk
+        script: eas build --platform android --non-interactive
     artifacts:
-      - build/app/outputs/flutter-apk/app-release.apk
+      - build-*.apk
