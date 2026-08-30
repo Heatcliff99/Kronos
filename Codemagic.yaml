@@ -1,0 +1,21 @@
+codemagic:
+  workflows:
+    react-native-android:
+      name: React Native Android
+      environment:
+        android: android-34
+        java: java-11
+      triggering:
+        events:
+          - push
+          - pull_request
+        branch:
+          include_patterns:
+            - main
+      scripts:
+        - name: Get Flutter packages
+          script: flutter pub get
+        - name: Build APK
+          script: flutter build apk
+      artifacts:
+        - build/app/outputs/flutter-apk/app-release.apk
